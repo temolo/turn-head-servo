@@ -1,5 +1,5 @@
 {
-    "name": "Turn head servo",
+    "name": "MecanumInfraredRemote",
     "description": "",
     "dependencies": {
         "core": "*",

@@ -1,31 +1,9 @@
-input.onButtonPressed(Button.A, function () {
-    basic.showLeds(`
-        . . # . .
-        . # # . .
-        # # # # #
-        . # # . .
-        . . # . .
-        `)
-    mecanumRobot.setServo(0)
+let IRRemoteValue = 0
+basic.showIcon(IconNames.Rollerskate)
+serial.redirectToUSB()
+irRemote.connectInfrared(DigitalPin.P9)
+basic.forever(function () {
+    IRRemoteValue = irRemote.returnIrButton()
+    serial.writeValue("IRRemote= ", IRRemoteValue)
+    basic.pause(1000)
 })
-input.onButtonPressed(Button.AB, function () {
-    basic.showLeds(`
-        . . # . .
-        . . # . .
-        # # # # #
-        . # # # .
-        . . # . .
-        `)
-    mecanumRobot.setServo(90)
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showLeds(`
-        . . # . .
-        . . # # .
-        # # # # #
-        . . # # .
-        . . # . .
-        `)
-    mecanumRobot.setServo(180)
-})
-basic.showIcon(IconNames.LeftTriangle)
